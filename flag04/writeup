@@ -1,0 +1,5 @@
+THE FLAG IS : 0FBB54BBF7D099713CA4BE297E1BC7DA0173D8B3C21C1811B916A3A86652724E
+
+sur la page feedback il ya un formulaire avec deux champs, afin d'essayer une injection sql je verifie si les caracteres speciaux sont echapes je commence avec "'" et je remarque que dans name il ya : "'" et dans comment : "\'" 
+
+du coup je retente en mettant "\'" dans le champ message et bingo

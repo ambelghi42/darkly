@@ -1,0 +1,10 @@
+go sur la page de login, je click sur recover my password qui m'ammene sur la page suivante : http://192.168.56.105/index.php?page=recover#
+
+en inspectant l'element depuis chrome on remarque la ligne suivanate : 
+
+<form action="#" method="POST">
+	<input type="hidden" name="mail" value="webmaster@borntosec.com" maxlength="15">
+	<input type="submit" name="Submit" value="Submit">
+</form>
+
+je me dis qu'en changeant la value du champ mail j'arriverais peut etre a recevoir le mdp sur mon mail et bingo

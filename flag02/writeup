@@ -1,0 +1,9 @@
+dans le footer on remarque des liens vers les reseaux sociaux, il sagit en faite d'une page de redirection :
+
+<li><a href="index.php?page=redirect&site=twitter" class="icon fa-twitter"></a></li>
+
+en visitant cette url la page nous redirige vers la pa ge twitter, mais si on laisse variable site vide on obtient le flag, jen conclu que la page ne check pas bien les variables quelle recoit lors dune requete GET
+
+index.php?page=redirect&site=
+
+B9E775A0291FED784A2D9680FCFAD7EDD6B8CDF87648DA647AAF4BBA288BCAB3

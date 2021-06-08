@@ -1,0 +1,25 @@
+dans le footer de la page index on remarque un lien vers cette page :
+
+http://192.168.56.105/?page=e43ad1fdc54babe674da7c7b8f0127bde61de3fbe01def7d00f151c2fcca6d1c
+
+d'emble je remarque un hash dans la variable GET 'page' en le decryptant on obtient : TAMERE 
+
+(on obtient vraiment TAMERE cest pas une blague)
+
+en analysant le code source je fini par remarquer qu'il ya vachement de padding a droite et en bas en dezzomant je remarque des commentaires
+
+dont un bien cache : "Let's use this browser : "ft_bornToSec". It will help you a lot.
+
+Ok je comprand qu'il faut spoof le user-agent, pour ce faire j'utilise une extension chromei(modHeader) qui me permet de modifier les headers des requetes
+
+je modif donc le user-agent pour quil soit egal a "ft_bornToSec" puis je reload la page
+
+une fois la page loadee rien de special a premiere vue, j'affiche donc le code source et la il ya un nouveau commentaire : "<!--
+You must cumming from : "https://www.nsa.gov/" to go to the next step
+-->"
+
+Ok donc je modif le referer dans le header pour quil corresp avec https://www.nsa.gov/ et bingo !
+
+THE FLAG IS : F2A29020EF3132E01DD61DF97FD33EC8D7FCD1388CC9601E7DB691D17D4D6188
+
+

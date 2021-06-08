@@ -1,0 +1,3 @@
+FLAG = 46910D9CE35B385885A9F7E2B336249D622F29B267A1771FBACF52133BEDDBA8
+
+en allant sur la page upload on ne peut upload que des fichiers en .jpeg, jai donc essayer avec un fichier x.jpeg que jai renommner en x.jpeg.sh afin de verifier si la page php verifiait correctement lextension du fichier
